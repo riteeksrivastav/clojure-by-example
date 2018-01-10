@@ -535,14 +535,14 @@
 
 
 ;; Quick-n-dirty test:
-(defn colonize-habitable-planets!
-  [planets]
-  (let [send-rockets! (fn [p]
-                        (str "Send rockets to " (:name p) " now!"))]
-    ((comp (partial map send-rockets!)
-           :habitable
-           group-by-habitable)
-     planets)))
+#_(defn colonize-habitable-planets!
+    [planets]
+    (let [send-rockets! (fn [p]
+                          (str "Send rockets to " (:name p) " now!"))]
+      ((comp (partial map send-rockets!)
+             :habitable
+             group-by-habitable)
+       planets)))
 
 
 #_(colonize-habitable-planets! target-planets)
