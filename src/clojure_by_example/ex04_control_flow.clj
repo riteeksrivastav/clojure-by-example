@@ -186,7 +186,7 @@
 
 ;; Using `when` ... we might design a function:
 
-(defn moon-or-nothing
+(defn rocket-info-1
   [planet]
   ;; Recall: we can "let-bind" local variables
   (let [num-moons (:moons planet)]
@@ -194,7 +194,9 @@
       {:sent-rockets num-moons
        :to-moons-of (:name planet)})))
 
-(moon-or-nothing {:name "Venus" :moons 0})
+(rocket-info-1 {:name "Venus" :moons 0})
+
+(rocket-info-1 {:name "Mars" :moons 2})
 
 
 ;; Later, someone may ask us...
@@ -211,18 +213,23 @@
 
 ;; And we will answer...
 (map good-heavens-what-did-you-do?
-     (map moon-or-nothing planets))
+     (map rocket-info-1 planets))
 
 
 
 ;; But suppose, using `if` ... we design a function:
 
-(defn moon-or-bust [planet]
+(defn rocket-info-2
+  [planet]
   (let [num-moons (:moons planet)]
     (if (> num-moons 0)
       {:sent-rockets num-moons
        :to-moons-of (:name planet)}
       "Bust!")))
+
+(rocket-info-2 {:name "Venus" :moons 0})
+
+(rocket-info-2 {:name "Mars" :moons 2})
 
 
 ;; And later, somebody wants to know from us...
@@ -238,7 +245,7 @@
 ;; We should be able to provide the same answers as before...
 
 #_(map good-heavens-what-did-you-do-again???
-     (map moon-or-bust planets))
+       (map rocket-info-2 planets))
 
 
 
