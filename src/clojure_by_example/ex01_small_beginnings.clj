@@ -46,6 +46,9 @@
                                   "traces" 0.14}}})
 
 
+earth ; evaluate this to check
+
+
 ;; _Now_ let's query the 'earth' global...
 
 ;; Top-level access:
@@ -173,23 +176,13 @@
 ;;
 ;; Does `get-in` work for strings too?
 
-#_(get-in earth 'FIX)
+(get-in earth ["atmosphere" "other-gases" "argon"])
 
 
 
-;; EXERCISE:
+
+;; Vectors
 ;;
-;; Use `get-in` to query other gases from the `earth` hash-map.
-
-
-
-;; EXERCISE:
-;;
-;; Use `get-in` to query argon from `earth`'s atmosphere
-
-
-
-
 ;; Clojure "Vectors" (indexed collections, like Arrays):
 
 ["atmosphere"] ; is a vector of one string
