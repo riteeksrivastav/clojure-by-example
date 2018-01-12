@@ -187,18 +187,18 @@
 
 ;; Let's define another little function.
 
-(defn planet-has-moons?
+(defn planet-with-moons?
   "Given a 'planet' (assume it's a hash-map), return true if
   it has at least one moon."
   [planet]
   (> (:moons planet)
      0))
 
-(planet-has-moons? {:name "Mercury" :moons 0})
+(planet-with-moons? {:name "Mercury" :moons 0})
 
-(planet-has-moons? {:name "Earth" :moons 1})
+(planet-with-moons? {:name "Earth" :moons 1})
 
-(planet-has-moons? {:name "Mars" :moons 2})
+(planet-with-moons? {:name "Mars" :moons 2})
 
 
 ;; EXERCISE
@@ -212,7 +212,7 @@
 ;; EXERCISE
 ;;
 ;; Replace 'FIX with your own anonymous function that works
-;; just like `planet-has-moons?`.
+;; just like `planet-with-moons?`.
 
 #_(map 'FIX  planets)
 
@@ -221,7 +221,7 @@
 ;;
 ;; And, finally, prove that both variants do exactly the same thing:
 
-#_(= (map planet-has-moons? 'FIX)
+#_(= (map planet-with-moons? 'FIX)
 
      ('FIX 'FIX 'FIX)  ; use anonymous function
 
