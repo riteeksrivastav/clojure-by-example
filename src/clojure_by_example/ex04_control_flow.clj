@@ -22,7 +22,8 @@
 :a    ; truthy
 "foo" ; truthy
 [7 3] ; truthy
-
+[]    ; turthy
+""    ; truthy
 
 ;; Truthy/Falsey are NOT Boolean
 
@@ -36,7 +37,7 @@
 (boolean nil) ; coerce nil to `false`
 
 (map boolean
-     [42 :a "foo" [1 2 3 4]]) ; coerce non-nils to `true`
+     [42 :a "foo" [1 2 3 4] [] ""]) ; coerce non-nils to `true`
 
 
 
@@ -44,23 +45,33 @@
 
 ;; `if` treats `false` and `nil` as falsey, everything else as truthy
 
-(if false   ; if     condition
-  :hello    ; "then-expression"
-  :bye-bye) ; "else-expression"
+(if false   ; if       condition
+  :hello    ; "then"   expression
+  :bye-bye) ; "else"   expression
 
 
-(if nil :hello :bye-bye)
+(if nil
+  :hello
+  :bye-bye)
 
 
 ;; Truthy:
 
-(if true  :hello :bye-bye)
+(if true
+  :hello
+  :bye-bye)
 
-(if "Oi"  :hello :bye-bye)
+(if "Oi"
+  :hello
+  :bye-bye)
 
-(if 42    :hello :bye-bye)
+(if 42
+  :hello
+  :bye-bye)
 
-(if [1 2] :hello :bye-bye)
+(if [1 2]
+  :hello
+  :bye-bye)
 
 
 
@@ -69,11 +80,14 @@
 (when 42
   :hello)
 
-(when false :bye-bye)
+(when false
+  :bye-bye)
 
-(when nil :bye-bye)
+(when nil
+  :bye-bye)
 
-(when (nil? nil) :bye-bye)
+(when (nil? nil)
+  :bye-bye)
 
 
 ;; MENTAL EXERCISES
@@ -86,7 +100,9 @@
 ;;
 ;; Predict what will happen...
 
-(map (fn [x] (if x :hi :bye))
+(map (fn [x] (if x
+               :hi
+               :bye))
      [1 2 nil 4 5 nil 7 8])
 
 
@@ -95,7 +111,9 @@
 ;;
 ;; Predict what will happen...
 
-(reduce (fn [acc x] (if x (inc acc) acc))
+(reduce (fn [acc x] (if x
+                      (inc acc)
+                      acc))
         0 ; initial accumulator
         [1 2 nil 4 5 nil 7 8])
 
@@ -142,7 +160,8 @@
 
 ;; So... Guard functions like `even?` against the evil of nil
 
-(filter (fn [x] (when x (even? x)))
+(filter (fn [x] (when x
+                  (even? x)))
         [1 2 nil 4 5 nil 7 8])
 
 
