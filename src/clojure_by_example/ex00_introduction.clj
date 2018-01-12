@@ -29,7 +29,7 @@ reduce                                  ; transform a collection
 '(1 2 3 4 5)                            ; a list
 
 
-;; Any Clojure code that evaluates to a value is _also_ an "expression":
+;; Clojure code is also an expression; a "symbolic" expression:
 
 (+ 1 2)
 
@@ -47,18 +47,41 @@ reduce                                  ; transform a collection
 ;;
 ;; - Literals:
 
+
 ;; - Collection Literals:
 
-;; - "Code expressions":
 
-
-;; Clojure "code expressions" are called "s-expressions", because:
-(+ 1 2 3 4
- ) ; see, open paren + closed paren looks like an "S"?
+;; - "s-expressions":
 
 
 
 ;; DEMO: Clojure Code Evaluation Rules
+
+(+ 1 2)
+
+(+ (+ 1 2) (+ 1 2))
+
+(+ (+ (+ 1 2) (+ 1 2))
+   (+ (+ 1 2) (+ 1 2)))
+
+
+;; - To prevent evaluation
+'(1 2)
+
+'(+ 1 2)
+
+; (1 2)
+
+
+;; Compare this:
+#_(+ 1 2
+     3 4
+     5 6)
+
+;; With this:
+;; (+ 1 2
+;;    3 4
+;;    5 6)
 
 
 
@@ -77,3 +100,4 @@ reduce                                  ; transform a collection
 
 
 ;; What does it look like?
+'(defn hie  [person message] (str "Hie, " person " : " message))
