@@ -13,7 +13,7 @@
 
 
 ;; Recall: Our little "helper" function, to check if a planet has moons.
-(defn planet-has-moons?
+(defn planet-with-moons?
   "Given a 'planet' (assume it's a hash-map), return true if
   it has at least one moon."
   [planet]
@@ -29,7 +29,7 @@
 
 ;; But what do we do with a bunch of boolean results?
 
-(map planet-has-moons? planets)
+(map planet-with-moons? planets)
 
 
 ;; `filter` out things:
@@ -38,11 +38,11 @@
 ;;
 ;; Predict the result of these expressions:
 
-(filter planet-has-moons?
+(filter planet-with-moons?
         planets)
 
 
-(filter (fn [p] (not (planet-has-moons? p)))
+(filter (fn [p] (not (planet-with-moons? p)))
         planets)
 
 
@@ -51,7 +51,7 @@
 ;; You can define new "helper" function, in terms of earlier helper
 ;; functions... Fix the function body, and make it work.
 
-(defn planet-without-moon?
+(defn planet-without-moons?
   "Planets without moons are exactly opposite to planets with moons."
   [FIX]
   FIX)
@@ -73,8 +73,8 @@
 ;;
 ;; Will this work? Why? Take a guess... and then evaluate to check.
 
-{:planets-with-moons    (filter planet-has-moons? planets)
- :planets-without-moons (filter planet-without-moon? planets)}
+{:planets-with-moons    (filter planet-with-moons? planets)
+ :planets-without-moons (filter planet-without-moons? planets)}
 
 
 ;; EXERCISE:
@@ -166,7 +166,7 @@
 ;; EXERCISE:
 ;;
 ;; Count the number of `planets` that have moons.
-;; - Reuse the `planet-has-moons?` function that we already defined.
+;; - Reuse the `planet-with-moons?` function that we already defined.
 ;; - Use the `count` function to find the counts.
 
 (count [42 43 44 45]) ; try this example
@@ -178,7 +178,7 @@
 ;; EXERCISE:
 ;;
 ;; Calculate the total mass of planets having moons.
-;; - Reuse the `planet-has-moons?` function that we already defined.
+;; - Reuse the `planet-with-moons?` function that we already defined.
 
 
 
@@ -240,9 +240,9 @@
 ;; - and again, for planets without moons, using `complement`:
 ;;   compare, understand, use:
 
-(planet-has-moons?              {:name "Earth" :moons 1})
+(planet-with-moons?              {:name "Earth" :moons 1})
 
-((complement planet-has-moons?) {:name "Earth" :moons 1})
+((complement planet-with-moons?) {:name "Earth" :moons 1})
 
 ;; Type your solution here:
 
