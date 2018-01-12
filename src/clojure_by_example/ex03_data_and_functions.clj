@@ -140,9 +140,11 @@
 ;; `reductions` is a convenience function that helps us visualize
 ;; the "accumulator" at each step of the `reduce` computation:
 
+(reductions + 0 [0 0 1 2])
+
 (reductions + 0 (map :moons planets))
 
-
+(reductions + 2 (map :moons planets))
 
 ;; Lesson-end Exercises:
 
